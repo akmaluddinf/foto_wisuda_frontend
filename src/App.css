@@ -1,0 +1,82 @@
+
+
+body {
+  /* background-color: #f8f9fa; */
+  /* CSS untuk menambahkan background image */
+    background-image: url('../public/bg.png');
+    /* background-image: url('../public/bg2.jpg'); */
+    /* Ganti 'background.jpg' dengan path atau URL gambar latar belakang Anda */
+    background-size: cover;
+    /* Untuk memastikan gambar latar belakang mencakup seluruh halaman */
+    background-repeat: no-repeat;
+    /* Agar gambar latar belakang tidak diulang */
+    background-attachment: fixed; /* Opsional: agar gambar tetap saat scrolling */
+}
+
+.vh-100 {
+  min-height: 100vh;
+}
+
+.Card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+h4 {
+  font-size: 14px;
+  /* font-weight: bold; */
+  /* font-family: 'Poppins', sans-serif; */
+}
+
+
+ /* CSS untuk font dengan warna gradient */
+ .gradient-text {
+  /* font-size: 36px; */
+  /* background: linear-gradient(to right, #FFD700, #FF8C00, #FF4500); */
+  background: linear-gradient(to right, #4d85d7, #183b8f, #061337);
+  -webkit-background-clip: text; /* Untuk Chrome dan Safari */
+  background-clip: text;
+  color: transparent; /* Membuat teks asli transparan */
+}
+
+/* Membuat footer selalu berada di bawah halaman */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* background-color: #1833B8; */
+  /* background-color: #1A2D93; */
+  background-color: #040d3f;
+  color: white; /* Ganti dengan warna teks yang Anda inginkan */
+  text-align: center;
+  padding: 10px 0; /* Ruang di atas dan bawah teks dalam footer */
+}
+
+/* Gaya tautan sosial media */
+.sosial-media a {
+  font-size: 12px;
+  color: white; /* Warna teks tautan */
+  text-decoration: none; /* Menghilangkan garis bawah tautan */
+  margin-right: 10px; /* Ruang antara tautan */
+  /* display: flex; */
+  align-items: center;
+}
+
+.sosial-media a:hover{
+  color: rgb(255, 0, 0);
+}
+
+.website a {
+  font-size: 12px;
+  color: white;
+  text-decoration: none; 
+  /* margin-right: 10px;  */
+  /* display: flex; */
+  align-items: center;
+}
+
+.website a:hover{
+  color: rgb(255, 0, 0);
+}

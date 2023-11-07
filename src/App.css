@@ -1,9 +1,10 @@
-
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
 
 body {
   /* background-color: #f8f9fa; */
   /* CSS untuk menambahkan background image */
-    background-image: url('../public/bg.png');
+    background-image: url('../public/bg8.png');
     /* background-image: url('../public/bg2.jpg'); */
     /* Ganti 'background.jpg' dengan path atau URL gambar latar belakang Anda */
     background-size: cover;
@@ -43,7 +44,7 @@ h4 {
 
 /* Membuat footer selalu berada di bawah halaman */
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   /* background-color: #1833B8; */
@@ -79,4 +80,34 @@ footer {
 
 .website a:hover{
   color: rgb(255, 0, 0);
+}
+
+.container-fluid {
+  min-height: 95vh;
+  position: relative;
+}
+
+
+/* Media query untuk layar berukuran maksimum 768px dengan gambar latar belakang */
+@media (max-width: 768px) {
+  body {
+    background-image: url('../public/bgmob2.jpg'); 
+    background-size: cover; 
+  }
+}
+
+/* Gaya responsif untuk iPad Air dan Surface Pro 7 dalam mode potrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  body {
+    background-image: url('../public/bgmob2.jpg'); 
+    background-size: cover; 
+  }
+}
+
+/* Gaya responsif untuk iPad Air dan Surface Pro 7 dalam mode landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  body {
+    background-image: url('../public/bgmob2.jpg'); 
+    background-size: cover; 
+  }
 }

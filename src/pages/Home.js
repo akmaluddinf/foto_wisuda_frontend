@@ -96,6 +96,9 @@ function App() {
     if (filename.length >= 10 && e.key === 'Backspace') {
       e.preventDefault(); // Mencegah penghapusan jika panjang sudah maksimal
     }
+    if (e.key === 'Enter'){
+      handleDownload();
+    }
   };
 
   const backgroundImageStyle = {
@@ -111,63 +114,52 @@ function App() {
   };
 
   return (
-
-    <div className='container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw', height: '100vh' }}>
-      <div className='row' style={{ marginTop: '0px' }}>
-        {/* <div className='col' style={{ textAlign: 'center' }}>
-          <br /><br />
-          <h3 className='gradient-text'>Selamat & Sukses</h3>
-          <h4>Wisudawan/Wisudawati</h4>
-          <h4>Program Sarjana, Magister, dan Doktor</h4>
-          <h4>Wisuda Gelombang I TA 2023/2024</h4>
-          <br />
-          <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Download Foto Wisuda
-          </button>
-        </div> */}
-
-        <div className='col' style={{ textAlign: 'center' }}>
-          {/* <div class="card" style={{ width: "25rem", height: '19rem', backgroundColor: 'wheat', boxShadow: '10px 10px 10px -5px #ffb67e' }}> */}
-          <div className="card" style={{ width: "25rem", height: '19rem', backgroundColor: 'wheat', boxShadow: '10px 10px 10px -5px royalblue' }}>
-            <div className="card-body">
-              <h3 style={{ marginBottom: '20px', fontFamily: "'Poppins', sans-serif" }}>Selamat & Sukses</h3>
-              {/* <h3 style={{ marginBottom: '20px', fontFamily:"'Brush Script MT', cursive", fontSize:"50px" }}>Selamat & Sukses</h3> */}
-              <h4>Wisudawan dan Wisudawati</h4>
-              <h4>Program Sarjana, Magister, dan Doktor</h4>
-              <h4>Wisuda Gelombang I TA 2023/2024</h4>
-              <br />
-              <h4>Mandala Saba Ir. H. Djuanda - Univeristas Pasundan</h4>
-              <h4>11 November 2023</h4>
-              <br />
-              <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <b>Download Foto Wisuda</b>
-              </button>
-            </div>
+    <>
+      <div className='container-fluid' style={{ display: "flex", alignItems: "center", justifyContent: "center"}}>
+      {/* <div className='container-fluid'> */}
+        <div className='row' style={{ textAlign: "center" }}>
+          <div className='col-lg-12'>
+            <img src='logo_wisuda.png' className="img-fluid" alt='' style={{ width: '259px', height: '100px', marginBottom: '40px', marginTop: '50px' }} />
+          </div>
+          <div className='col-lg-12'>
+            <h3 style={{ marginBottom: '20px', fontFamily: "'Rammetto One', sans-serif", color: '#C44D18' }}>Selamat & Sukses</h3>
+            <h4>Wisudawan dan Wisudawati</h4>
+            <h4>Program Sarjana, Magister, dan Doktor</h4>
+            <h4>Wisuda Gelombang I TA 2023/2024</h4>
+            {/* <br /> */}
+            <h4>Universitas Pasundan</h4>
+            <br />
+            <h4>Sasana Budaya Ganesha, 11 November 2023</h4>
+            <br />
+            <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <b>Download Foto Wisuda</b>
+            </button>
           </div>
         </div>
 
-      </div>
-
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content" style={backgroundImageStyle}>
-            <div className="modal-header" style={{borderBottom : 'none'}}>
-              <h1 className="modal-title fs-5" id="exampleModalLabel" style={{ textAlign: 'center' }}>Download Foto Wisuda Universitas Pasundan Gelombang I TA 2023/2024</h1>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <div className="form-floating mb-3">
-                <input type="number" className="form-control" id="floatingInput" placeholder="Masukkan NIM" value={filename} onChange={handleChange} onKeyDown={handleKeyPress} />
-                <label htmlFor="floatingInput">Masukkan NIM</label>
+        {/* modal */}
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content" style={backgroundImageStyle}>
+              <div className="modal-header" style={{ borderBottom: 'none' }}>
+                <h1 className="modal-title fs-5" id="exampleModalLabel" style={{ textAlign: 'center' }}>Download Foto Wisuda Universitas Pasundan Gelombang I TA 2023/2024</h1>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              {errorMessage && <b><p className="text-danger">{errorMessage}</p></b>}
-            </div>
-            <div className="modal-body" style={{ textAlign: 'center', display: 'block' }}>
-              <button type="button" className="btn btn-success" onClick={handleDownload}><b>Download</b></button>
+              <div className="modal-body">
+                <div className="form-floating mb-3">
+                  <input type="number" className="form-control" id="floatingInput" placeholder="Masukkan NIM" value={filename} onChange={handleChange} onKeyDown={handleKeyPress} />
+                  <label htmlFor="floatingInput">Masukkan NIM</label>
+                </div>
+                {errorMessage && <b><p className="text-danger">{errorMessage}</p></b>}
+              </div>
+              <div className="modal-body" style={{ textAlign: 'center', display: 'block' }}>
+                <button type="button" className="btn btn-success" onClick={handleDownload}><b>Download</b></button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+      </div> {/*end div container*/}
 
       <footer>
         <span className="website" style={{ fontSize: '12px' }}>
@@ -213,7 +205,7 @@ function App() {
 
       </footer>
 
-    </div>
+    </>
   );
 }
 

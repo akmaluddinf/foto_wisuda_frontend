@@ -16,12 +16,14 @@ function App() {
 
   const handleDownload = async () => {
     if (!filename) {
-      setErrorMessage('Masukkan NIM terlebih dahulu.');
+      setErrorMessage('Masukkan NIM terlebih dahulu!');
       // Tampilkan SweetAlert ketika input kosong
       Swal.fire({
-        icon: 'info',
-        title: 'Masukkan NIM terlebih dahulu',
-        text: 'Anda harus memasukkan NIM sebelum mengunduh.',
+        title: 'NIM TIDAK BOLEH KOSONG!',
+        text: 'DOWNLOAD FOTO WISUDA GELOMBANG I TAHUN AKADEMIK 2023/2024',
+        imageUrl: 'logo_wisuda.png',
+        imageHeight: 100,
+        imageAlt: 'Logo',
         confirmButtonColor: '#198754'
       });
       return;
@@ -47,33 +49,39 @@ function App() {
       log.info(`File ${filename}.zip berhasil diunduh.`); // Menyisipkan pesan log di sini
       // Tampilkan SweetAlert ketika unduhan berhasil
       Swal.fire({
-        icon: 'success',
-        title: 'Unduhan Berhasil',
-        text: `File ${filename}.zip berhasil diunduh.`,
+        title: `FOTO WISUDA DENGAN NIM: ${filename} BERHASIL DIUNDUH!`,
+        text: 'DOWNLOAD FOTO WISUDA GELOMBANG I TAHUN AKADEMIK 2023/2024',
+        imageUrl: 'logo_wisuda.png',
+        imageHeight: 100,
+        imageAlt: 'Logo',
         confirmButtonColor: '#198754'
       });
 
     } catch (error) {
       log.error(error); // Mencatat error ke log
       if (error.response && error.response.status === 404) {
-        setErrorMessage('File tidak ditemukan.');
+        setErrorMessage('NIM tidak ditemukan!');
         // Tampilkan SweetAlert ketika file tidak ditemukan
         Swal.fire({
-          icon: 'error',
-          title: 'File tidak ditemukan',
-          text: 'Masukkan NIM dengan benar!',
+          title: 'NIM TIDAK DITEMUKAN!',
+          text: 'DOWNLOAD FOTO WISUDA GELOMBANG I TAHUN AKADEMIK 2023/2024',
+          imageUrl: 'logo_wisuda.png',
+          imageHeight: 100,
+          imageAlt: 'Logo',
           confirmButtonColor: '#198754'
         });
         log.warn(`File ${filename}.zip tidak ditemukan.`); // Menyisipkan pesan log di sini
       } else if (error.response && error.response.data && error.response.data.error) {
         setErrorMessage(error.response.data.error);
       } else {
-        setErrorMessage('Terjadi kesalahan saat mengunduh file.');
+        setErrorMessage('Terjadi kesalahan saat mengambil data!');
         // Tampilkan SweetAlert untuk kesalahan umum
         Swal.fire({
-          icon: 'error',
-          title: 'Terjadi kesalahan',
-          text: 'Terjadi kesalahan saat mengunduh file.',
+          title: 'TERJADI KESALAHAN SAAT MENGAMBIL DATA!',
+          text: 'DOWNLOAD FOTO WISUDA GELOMBANG I TAHUN AKADEMIK 2023/2024',
+          imageUrl: 'logo_wisuda.png',
+          imageHeight: 100,
+          imageAlt: 'Logo',
           confirmButtonColor: '#198754'
         });
       }
@@ -102,12 +110,7 @@ function App() {
   };
 
   const backgroundImageStyle = {
-    // backgroundImage: 'url("https://img.freepik.com/free-vector/background-gradient-green-tones_23-2148373603.jpg?w=740&t=st=1694765700~exp=1694766300~hmac=00e7ad0b270757fb0623429a6b1b4bd7a430c9e5ec20d67b8ec6cb81e675fcbb")',
-
-    backgroundImage: 'url("https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3771.jpg?w=740&t=st=1694765847~exp=1694766447~hmac=fed0eb05fc9a1965462de17b5e4761f6680121ba290e1b0054e77f69c212d5b7")',
-
-    // backgroundImage: 'url("https://img.freepik.com/free-photo/defocused-abstract-pastel-color-tone_58702-1606.jpg?w=740&t=st=1694766009~exp=1694766609~hmac=8164f001b927aef7c317b43806e5740e05ff36096d0d4d0a4f3d1fdbceff429b")',
-
+    backgroundImage:"url('bgmob2.jpg')",
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
@@ -147,8 +150,8 @@ function App() {
               </div>
               <div className="modal-body">
                 <div className="form-floating mb-3">
-                  <input type="number" className="form-control" id="floatingInput" placeholder="Masukkan NIM" value={filename} onChange={handleChange} onKeyDown={handleKeyPress} />
-                  <label htmlFor="floatingInput">Masukkan NIM</label>
+                  <input type="number" className="form-control" id="floatingInput" placeholder="Nomor Induk Mahasiswa" value={filename} onChange={handleChange} onKeyDown={handleKeyPress} />
+                  <label htmlFor="floatingInput">Nomor Induk Mahasiswa</label>
                 </div>
                 {errorMessage && <b><p className="text-danger">{errorMessage}</p></b>}
               </div>

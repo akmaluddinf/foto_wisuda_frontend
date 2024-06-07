@@ -46,6 +46,7 @@ body {
 /* Membuat footer selalu berada di bawah halaman */
 footer {
   position: relative;
+  position: relative;
   bottom: 0;
   width: 100%;
   /* background-color: #1833B8; */
